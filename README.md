@@ -17,3 +17,5 @@ cp .env.example .env
 ```bash
 MONGODB_URI=your-mongodb-uri
 ```
+
+- Por agregar: API KEY (usando uuid)
