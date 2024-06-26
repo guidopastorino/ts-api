@@ -18,4 +18,6 @@ cp .env.example .env
 MONGODB_URI=your-mongodb-uri
 ```
 
-- Por agregar: API KEY (usando uuid)
+#### Tareas
+
+- Por agregar: api keys (usando uuid)
