@@ -2,7 +2,7 @@
 
 Esta es una plantilla básica para crear una API CRUD utilizando TypeScript y Express, junto con MongoDB para la base de datos.
 
-Esta API está configurada para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre una base de datos MongoDB utilizando Express como framework web y TypeScript para la tipificación segura del código.
+Esta API está configurada para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre una base de datos MongoDB utilizando Express como framework y TypeScript para el tipado.
 
 ## Configuración del Entorno
 
