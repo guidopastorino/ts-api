@@ -1,0 +1,22 @@
+# Dependencias de node
+node_modules/
+
+# Salidas de compilación
+dist/
+
+# Variables de entorno
+.env
+
+# Archivos específicos del entorno
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de TypeScript
+tsconfig.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
