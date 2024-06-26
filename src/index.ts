@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 const express = require('express');
+const cors = require('cors')
 const dbConnect = require('./db/db').default; // Se usa .default debido a export default
 const usersRouter = require('./routes/userRouter').default; // Se usa .default debido a export default
 
@@ -8,6 +9,9 @@ const port = process.env.PORT || 3000;
 
 // Conecta a la base de datos
 dbConnect();
+
+// Middleware para permitir CORS
+app.use(cors());
 
 // Middleware para parsear JSON en las solicitudes
 app.use(express.json());
