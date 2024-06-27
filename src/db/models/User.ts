@@ -1,22 +1,26 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, Model } from 'mongoose';
 
-// Definición de la interfaz para el documento de Usuario
+// Definición de interfaz para el usuario en Mongoose
 interface IUser extends Document {
+  _id: string;
   nombre: string;
   apellido: string;
-  edad: number;
+  email: string;
   telefono: string;
+  apiKey: string;
+  __v: Number;
 }
 
-// Esquema de Mongoose para el modelo de Usuario
-const UserSchema: Schema = new Schema({
+// Esquema de Mongoose para el usuario
+const userSchema = new Schema<IUser>({
   nombre: { type: String, required: true },
   apellido: { type: String, required: true },
-  edad: { type: Number, required: true },
-  telefono: { type: String, required: true, unique: true }
+  email: { type: String, required: true, unique: true },
+  telefono: { type: String, required: true, unique: true },
+  apiKey: { type: String, required: true, unique: true }
 });
 
-// Crear y exportar el modelo de Usuario
-const User = mongoose.model<IUser>('User', UserSchema);
+// Modelo de Mongoose para el usuario
+const User: Model<IUser> = mongoose.model<IUser>('User', userSchema);
 
 export default User;

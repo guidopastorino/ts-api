@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
 import User from '../db/models/User';
 import { MongoError } from 'mongodb';
+const { v4: uuid } = require('uuid')
 
 export default async function createUser(req: Request, res: Response): Promise<void> {
   try {
-    const { nombre, apellido, edad, telefono } = req.body;
+    const { nombre, apellido, email, telefono } = req.body;
 
-    const newUser = new User({ nombre, apellido, edad, telefono });
+    const apiKey = uuid()
+    const newUser = new User({ nombre, apellido, email, telefono, apiKey });
     await newUser.save();
 
     res.status(201).json(newUser);

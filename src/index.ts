@@ -1,4 +1,7 @@
 import { Request, Response } from "express";
+import { authenticateApiKey } from "./middlewares/ApiKeyAuth";
+import { registerUser } from "./utils/registerUser";
+import { verifyEmail } from "./utils/verifyEmail";
 const express = require('express');
 const cors = require('cors')
 const dbConnect = require('./db/db').default; // Se usa .default debido a export default
@@ -21,8 +24,12 @@ app.get('/', (req: Request, res: Response) => {
   res.send('<h1>Server working successfully</h1>');
 });
 
+// Email (register and verify)
+app.post('/register', registerUser);
+app.get('/verify-email', verifyEmail);
+
 // Monta el enrutador de usuarios bajo /api
-app.use('/api', usersRouter);
+app.use('/api', authenticateApiKey, usersRouter);
 
 // Inicia el servidor
 app.listen(port, () => {
