@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { authenticateApiKey } from "./middlewares/ApiKeyAuth";
 import { registerUser } from "./utils/registerUser";
 import { verifyEmail } from "./utils/verifyEmail";
-// import { SERVER_URL } from './config' (maybe put this on server running string)
 const express = require('express');
 const cors = require('cors')
 const dbConnect = require('./db/db').default; // Se usa .default debido a export default

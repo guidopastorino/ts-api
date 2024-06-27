@@ -18,7 +18,8 @@ export async function registerUser(req: Request, res: Response): Promise<void> {
       return;
     }
 
-    const token = jwt.sign({ nombre, apellido, email, telefono, password }, JWT_SECRET, { expiresIn: '24h' });
+    // securing that jwt secret has a value
+    const token = jwt.sign({ nombre, apellido, email, telefono, password }, JWT_SECRET || 'my_secret', { expiresIn: '24h' });
 
     const verificationLink = `${SERVER_URL}/verify-email?token=${token}`;
     console.log("verificationLink", verificationLink);
@@ -27,7 +28,11 @@ export async function registerUser(req: Request, res: Response): Promise<void> {
       from: ACCOUNT_EMAIL,
       to: email,
       subject: 'Email Verification',
-      html: `<p>Please verify your email by clicking the following link:</p><a href="${verificationLink}">Verify Email</a>`,
+      html: `
+      <p>Please verify your email by clicking the following link:</p>
+      <a href="${verificationLink}">Verify Email</a>
+      <p><b>This link will expire within 24 hours.</b></p>
+      `,
     });
 
     res.status(201).json({ message: 'User registered. Please verify your email.' });
