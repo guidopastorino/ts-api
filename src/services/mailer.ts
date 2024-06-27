@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const { ACCOUNT_EMAIL, ACCOUNT_APP_PASSWORD } = require('../config');
+import { ACCOUNT_EMAIL, ACCOUNT_APP_PASSWORD }  from '../config';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
