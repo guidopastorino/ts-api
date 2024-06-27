@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-import { ACCOUNT_EMAIL, ACCOUNT_PASSWORD, ACCOUNT_APP_PASSWORD }  from '../config';
+import { ACCOUNT_EMAIL, ACCOUNT_APP_PASSWORD } from '../config';
 import dotenv from 'dotenv'
 
 dotenv.config()
