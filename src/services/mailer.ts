@@ -1,21 +1,23 @@
 const nodemailer = require('nodemailer');
-import { ACCOUNT_EMAIL, ACCOUNT_APP_PASSWORD }  from '../config';
+import { ACCOUNT_EMAIL, ACCOUNT_PASSWORD, ACCOUNT_APP_PASSWORD }  from '../config';
 import dotenv from 'dotenv'
 
 dotenv.config()
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  port: 465,
+  secure: true,
+  logger: true,
+  debug: true,
+  secureConnection: false,
   auth: {
     user: ACCOUNT_EMAIL,
     pass: ACCOUNT_APP_PASSWORD
   },
-  logger: true,
-  debug: true,
-  secure: true,
   tls: {
-    rejectUnauthorized: true
+    rejectUnauthorized: false
   }
-});
+})
 
 export default transporter

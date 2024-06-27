@@ -5,5 +5,6 @@ dotenv.config();
 export const MONGODB_URI = process.env.MONGODB_URI as string;
 export const JWT_SECRET = process.env.JWT_SECRET as string;
 export const ACCOUNT_EMAIL = process.env.ACCOUNT_EMAIL as string;
+export const ACCOUNT_PASSWORD = process.env.ACCOUNT_PASSWORD as string;
 export const ACCOUNT_APP_PASSWORD = process.env.ACCOUNT_APP_PASSWORD as string;
 export const SERVER_URL = process.env.SERVER_URL as string;
