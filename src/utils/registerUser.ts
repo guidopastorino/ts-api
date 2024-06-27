@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import User from "../db/models/User";
 import transporter from '../services/mailer';
 import dotenv from 'dotenv';
-import { ACCOUNT_EMAIL, JWT_SECRET } from '../config';
+import { ACCOUNT_EMAIL, JWT_SECRET, SERVER_URL } from '../config';
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ export async function registerUser(req: Request, res: Response): Promise<void> {
     // securing that jwt secret has a value
     const token = jwt.sign({ nombre, apellido, email, telefono, password }, JWT_SECRET, { expiresIn: '24h' });
 
-    const verificationLink = `http://localhost:3000/verify-email?token=${token}`;
+    const verificationLink = `${SERVER_URL}/verify-email?token=${token}`;
 
     await transporter.sendMail({
       from: ACCOUNT_EMAIL,
