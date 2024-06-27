@@ -18,7 +18,7 @@ export async function registerUser(req: Request, res: Response): Promise<void> {
       return;
     }
 
-    const token = jwt.sign({ nombre, apellido, email, telefono, password }, JWT_SECRET, { expiresIn: '24h' });
+    const token = jwt.sign({ nombre, apellido, email, telefono, password }, 'JWT_SECRET', { expiresIn: '24h' });
 
     const verificationLink = `${SERVER_URL}/verify-email?token=${token}`;
     console.log("verificationLink", verificationLink);
