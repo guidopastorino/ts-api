@@ -1,20 +1,18 @@
-const nodemailer = require('nodemailer')
-import { ACCOUNT_EMAIL, ACCOUNT_APP_PASSWORD } from '../config'
+const nodemailer = require('nodemailer');
+const { ACCOUNT_EMAIL, ACCOUNT_APP_PASSWORD } = require('../config');
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
-  port: 465,
-  secure: true,
-  logger: true,
-  debug: true,
-  secureConnection: false,
   auth: {
     user: ACCOUNT_EMAIL,
     pass: ACCOUNT_APP_PASSWORD
   },
+  logger: true,
+  debug: true,
+  secure: true,
   tls: {
-    rejectUnauthorized: false
+    rejectUnauthorized: true
   }
-})
+});
 
-export default transporter;
+export default transporter
