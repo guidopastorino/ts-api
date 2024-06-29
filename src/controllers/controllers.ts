@@ -9,5 +9,5 @@ export {
   getUser,
   getAllUsers,
   deleteUser,
-  updateUser
+  updateUser,
 }

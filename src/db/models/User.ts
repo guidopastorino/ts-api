@@ -2,12 +2,12 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
 
 // Definición de interfaz para el usuario en Mongoose
 interface IUser extends Document {
-  _id: string;
-  nombre: string;
-  apellido: string;
-  email: string;
-  telefono: string;
-  apiKey: string;
+  _id: String;
+  nombre: String;
+  apellido: String;
+  email: String;
+  telefono: String;
+  apiKey: String;
   __v: Number;
 }
 

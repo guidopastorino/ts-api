@@ -4,13 +4,13 @@ import { registerUser } from "./utils/registerUser";
 import { verifyEmail } from "./utils/verifyEmail";
 const express = require('express');
 const cors = require('cors')
-const dbConnect = require('./db/db').default; // Se usa .default debido a export default
-const usersRouter = require('./routes/userRouter').default; // Se usa .default debido a export default
+const dbConnect = require('./db/db').default;
+const usersRouter = require('./routes/userRouter').default;
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Conecta a la base de datos
+// Database connection
 dbConnect();
 
 // Middleware para permitir CORS
@@ -19,7 +19,7 @@ app.use(cors());
 // Middleware para parsear JSON en las solicitudes
 app.use(express.json());
 
-// Ruta principal
+// Main route
 app.get('/', (req: Request, res: Response) => {
   res.send('<h1>Server working successfully</h1>');
 });
