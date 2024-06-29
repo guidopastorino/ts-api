@@ -4,8 +4,19 @@ import User from "../db/models/User";
 
 dotenv.config();
 
+interface AuthenticatedUser extends Request {
+  user?: {
+    _id: String;
+    nombre: String;
+    apellido: String;
+    email: String;
+    telefono: String;
+    apiKey: String;
+  }
+}
+
 // Middleware de autenticación con API key
-export async function authenticateApiKey(req: Request, res: Response, next: NextFunction) {
+export async function authenticateApiKey(req: AuthenticatedUser, res: Response, next: NextFunction) {
   const apiKey = req.header('x-api-key')
   if (!apiKey) {
     return res.status(401).json({ error: "API key no proporsionada" })
